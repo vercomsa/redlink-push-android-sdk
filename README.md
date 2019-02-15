@@ -1,12 +1,27 @@
 # Getting started
 
 ## Gradle setup
+
 Add required dependencies to your gradle config file `app/build.gradle`.
 
 ```gradle
 implementation 'pl.redlink:push:1.0.0'
 implementation 'androidx.appcompat:appcompat:1.0.0'
 implementation 'com.google.firebase:firebase-messaging:17.3.4'
+```
+
+Add required repository
+
+```gradle
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://dl.bintray.com/vercomsa/maven"
+        }
+    }
+}
 ```
 
 NOTE: Redlink Push uses AndroidX dependencies (aka Android Support Library). We recommend to update project to AndroidX to avoid conflicts (https://developer.android.com/jetpack/androidx/migrate).
