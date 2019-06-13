@@ -5,9 +5,9 @@
 Add required dependencies to your gradle config file `app/build.gradle`.
 
 ```gradle
-implementation 'pl.redlink:push:1.0.0'
-implementation 'androidx.appcompat:appcompat:1.0.0'
-implementation 'com.google.firebase:firebase-messaging:17.3.4'
+implementation 'pl.redlink:push:1.0.1'
+implementation 'androidx.appcompat:appcompat:1.0.2'
+implementation 'com.google.firebase:firebase-messaging:18.0.0'
 ```
 
 Add required repository
@@ -158,7 +158,10 @@ Example:
 ```
 Please note that developer must call a `save()` function to complete the update process.
 
-Note: Custom values support `Int`, `String`, `Boolean`, `Date` types.
+Notes
+- Custom values support `Int`, `String`, `Boolean`, `Date` types
+- `email` method requires valid email format
+- `email`, `companyName`, `firstName`, `lastName` can be up to 64 length characters
 
 ## Remove information about the user
 To remove all information about the user, developer should simply invoke a `remove()` function on the RedlinkUser object.
@@ -192,7 +195,10 @@ To send custom analytics events developer should call a `trackEvent(String)` fun
 
 To provide some extra data as parameters developer should call a `trackEvent(String, Map<String, Any>)` function on the RedlinkAnalytics object.
 
-Note: Param values support `Int`, `String`, `Boolean`, `Date` types.
+Notes
+- Param values support `Int`, `String`, `Boolean`, `Date` types.
+- Event name can be up to 64 length characters
+- Param key can be up to 64 length characters
 
 Java:
 ```java
