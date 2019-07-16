@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Redlink Demo</string>
+
+    <string name="redlink_app_id">{your-redlink-app-id}</string>
+    <string name="redlink_token">{your-redlink-token}</string>
+    <string name="redlink_secret">{your-redlink-secret}</string>
+    <string name="fcm_sender_id">{your-firebase-sender-id}</string>
+    <string name="redlink_events_token">{your-events-token}</string>
+
+    <string name="send_event">Send event</string>
+    <string name="send_event_with_params">Send event with params</string>
+    <string name="share_fcm">Share</string>
+    <string name="version">Version: %s</string>
+    <string name="register">Register</string>
+    <string name="unregister">Unregister</string>
+    <string name="new_token">New token</string>
+    <string name="token">Token</string>
+    <string name="user">User data</string>
+    <string name="edit">Edit</string>
+    <string name="first_name">First name</string>
+    <string name="save">Save</string>
+    <string name="edit_user_data">Edit user data</string>
+    <string name="last_name">Last name</string>
+    <string name="email">E-mail</string>
+    <string name="phone">Phone</string>
+    <string name="token_no_registered">Token not registered yet</string>
+    <string name="events">Events</string>
+    <string name="random_event">Random event</string>
+    <string name="event_name">Event name</string>
+    <string name="send_new_event">Send new event</string>
+    <string name="new_event">New event</string>
+    <string name="company">Company</string>
+    <string name="label_app_id">AppId:</string>
+    <string name="label_fcm_sender_id">FCM Sender ID:</string>
+    <string name="edit_user_error">Cannot save user. Check logs.</string>
+
+</resources>

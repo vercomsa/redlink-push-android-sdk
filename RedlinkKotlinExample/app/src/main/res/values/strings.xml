@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Redlink Kotlin Example</string>
-
-    <string name="redlink_app_id"></string>
-    <string name="redlink_token"></string>
-    <string name="redlink_secret"></string>
-    <string name="fcm_sender_id"></string>
-    <string name="redlink_events_token"></string>
-</resources>
