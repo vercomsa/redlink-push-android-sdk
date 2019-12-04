@@ -5,9 +5,9 @@
 Add required dependencies to your gradle config file `app/build.gradle`.
 
 ```gradle
-implementation 'pl.redlink:push:1.0.1'
-implementation 'androidx.appcompat:appcompat:1.0.2'
-implementation 'com.google.firebase:firebase-messaging:18.0.0'
+implementation 'pl.redlink:push:1.2.0'
+implementation 'androidx.appcompat:appcompat:1.1.0'
+implementation 'com.google.firebase:firebase-messaging:20.0.1'
 ```
 
 Add required repository
