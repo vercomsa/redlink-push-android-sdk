@@ -5,9 +5,9 @@
 Add required dependencies to your gradle config file `app/build.gradle`.
 
 ```gradle
-implementation 'pl.redlink:push:1.5.4'
-implementation 'androidx.appcompat:appcompat:1.1.0'
-implementation 'com.google.firebase:firebase-messaging:20.0.1'
+implementation 'pl.redlink:push:1.7.0'
+implementation 'androidx.appcompat:appcompat:1.0.2'
+implementation 'com.google.firebase:firebase-messaging:18.0.0'
 ```
 
 Add required repository
@@ -168,6 +168,17 @@ To remove all information about the user, developer should simply invoke a `remo
 
 ```kotlin
 RedlinkUser.remove()
+```
+
+If you want also to unsubscribe user from Redlink Push Notification Services you can also use additional parameter while removing user like so:
+```kotlin
+RedlinkUser.remove(deletePushToken = true)
+```
+
+You can use that when the user did sign out and you don't want to send notifications for that user.
+To make the current user's device to receive push notifications back again you need to call:
+```kotlin
+RedlinkUser.Edit().save()
 ```
 
 To remove only extra data assigned to user developer should simply invoke a `removeCustomValues()` function on a `RedlinkUser.Edit` class instance.
