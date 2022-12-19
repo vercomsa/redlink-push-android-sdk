@@ -5,7 +5,7 @@
 Add required dependencies to your gradle config file `app/build.gradle`.
 
 ```gradle
-implementation 'pl.redlink:push:1.12.0'
+implementation 'pl.redlink:push:1.12.1'
 implementation 'androidx.appcompat:appcompat:1.4.2'
 implementation 'com.google.firebase:firebase-messaging:23.1.0'
 ```
@@ -82,8 +82,8 @@ Actions can be invoked by interacting on notification (tap action) or notificati
 Each action has one of the four action types:
 - BROWSER - opens the default browser
 - WEBVIEW - opens the internal browser using Chrome Tabs or WebView
-- DEEPLINK - opens application using `ACTION_VIEW` action with the deeplink url
-- NONE - do nothing (notification disappears)
+- DEEPLINK - opens the app using `ACTION_VIEW` action with the deeplink url
+- NONE - opens the app
 
 To configure ChromeTabs, pass the builder via `RedlinkApp.customTabsBuilder()` method.
 
