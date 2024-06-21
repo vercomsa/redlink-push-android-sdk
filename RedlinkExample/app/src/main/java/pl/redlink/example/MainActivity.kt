@@ -1,5 +1,6 @@
 package pl.redlink.example
 
+import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -8,11 +9,11 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.dialog_event.view.*
-import kotlinx.android.synthetic.main.dialog_user_data.view.*
+import com.google.android.material.textfield.TextInputEditText
 import pl.redlink.push.analytics.RedlinkAnalytics
 import pl.redlink.push.fcm.PushMessage
 import pl.redlink.push.fcm.RedlinkFirebaseMessagingService
@@ -20,24 +21,25 @@ import pl.redlink.push.lifecycle.RedlinkActivity
 import pl.redlink.push.manager.token.FcmTokenManager
 import pl.redlink.push.manager.user.RedlinkUser
 import pl.redlink.push.service.RegisterDeviceService
-import java.util.*
+import java.util.Date
+import java.util.Random
 
 class MainActivity : RedlinkActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        tvVersion.text = getString(R.string.version, BuildConfig.VERSION_NAME)
+        findViewById<TextView>(R.id.tvVersion).text = getString(R.string.version, "1.0")
         initInteractions()
         initTokenAndUserData()
         registerReceivers()
     }
 
     private fun initInteractions() {
-        btEditUser.setOnClickListener { showUserEditDialog() }
-        btShareFcm.setOnClickListener { runShareIntent() }
-        btRandomEvent.setOnClickListener { sendRandomEventWithParams() }
-        btNewEvent.setOnClickListener { showEventDialog() }
+        findViewById<Button>(R.id.btEditUser).setOnClickListener { showUserEditDialog() }
+        findViewById<Button>(R.id.btShareFcm).setOnClickListener { runShareIntent() }
+        findViewById<Button>(R.id.btRandomEvent).setOnClickListener { sendRandomEventWithParams() }
+        findViewById<Button>(R.id.btNewEvent).setOnClickListener { showEventDialog() }
     }
 
     override fun onDestroy() {
@@ -60,15 +62,15 @@ class MainActivity : RedlinkActivity() {
         val userData = RedlinkUser.get()
         val values = TextUtils.join(
             USER_DATA_DELIMITER, listOf(
-                userData?.lastName,
-                userData?.firstName,
-                userData?.email,
-                userData?.phone,
-                userData?.companyName
+                userData.lastName,
+                userData.firstName,
+                userData.email,
+                userData.phone,
+                userData.companyName
             )
         )
-        tvUser.text = values
-        token.text = FcmTokenManager.get()
+        findViewById<TextView>(R.id.tvUser).text = values
+        findViewById<TextView>(R.id.token).text = FcmTokenManager.get()
     }
 
     /**
@@ -83,11 +85,12 @@ class MainActivity : RedlinkActivity() {
         fillDialogUserData(view)
         AlertDialog.Builder(this).apply {
             setPositiveButton(R.string.save) { _, _ ->
-                val firstName = view.etFirstName.text.toString()
-                val lastName = view.etLastName.text.toString()
-                val email = view.etEmail.text.toString()
-                val phone = view.etPhone.text.toString()
-                val company = view.etCompany.text.toString()
+                val firstName =
+                    view.findViewById<TextInputEditText>(R.id.etFirstName).text.toString()
+                val lastName = view.findViewById<TextInputEditText>(R.id.etLastName).text.toString()
+                val email = view.findViewById<TextInputEditText>(R.id.etEmail).text.toString()
+                val phone = view.findViewById<TextInputEditText>(R.id.etPhone).text.toString()
+                val company = view.findViewById<TextInputEditText>(R.id.etCompany).text.toString()
                 updateUserData(firstName, lastName, email, phone, company)
             }
             setTitle(R.string.edit_user_data)
@@ -96,7 +99,8 @@ class MainActivity : RedlinkActivity() {
     }
 
     private fun updateUserData(
-        firstName: String, lastName: String, email: String, phone: String, company: String) {
+        firstName: String, lastName: String, email: String, phone: String, company: String
+    ) {
         //only local validation
         val isSucceed = RedlinkUser.Edit()
             .firstName(firstName)
@@ -116,11 +120,11 @@ class MainActivity : RedlinkActivity() {
     private fun fillDialogUserData(view: View) {
         val user = RedlinkUser.get()
         view.apply {
-            etFirstName.setText(user?.firstName)
-            etLastName.setText(user?.lastName)
-            etEmail.setText(user?.email)
-            etPhone.setText(user?.phone)
-            etCompany.setText(user?.companyName)
+            findViewById<TextInputEditText>(R.id.etFirstName).setText(user.firstName)
+            findViewById<TextInputEditText>(R.id.etLastName).setText(user.lastName)
+            findViewById<TextInputEditText>(R.id.etEmail).setText(user.email)
+            findViewById<TextInputEditText>(R.id.etPhone).setText(user.phone)
+            findViewById<TextInputEditText>(R.id.etCompany).setText(user.companyName)
         }
     }
 
@@ -148,7 +152,8 @@ class MainActivity : RedlinkActivity() {
             layoutInflater.inflate(R.layout.dialog_event, findViewById(android.R.id.content), false)
         AlertDialog.Builder(this).apply {
             setPositiveButton(R.string.save) { _, _ ->
-                val eventName = view.etEventName.text.toString()
+                val eventName =
+                    view.findViewById<TextInputEditText>(R.id.etEventName).text.toString()
                 RedlinkAnalytics.trackEvent(name = eventName)
             }
             setTitle(R.string.send_new_event)
@@ -160,6 +165,7 @@ class MainActivity : RedlinkActivity() {
      * Broadcast listeners
      */
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     private fun registerReceivers() {
         val filter = IntentFilter(RedlinkFirebaseMessagingService.PUSH_ACTION)
         registerReceiver(messageListener, filter)
@@ -178,8 +184,7 @@ class MainActivity : RedlinkActivity() {
     private val messageListener = object : BroadcastReceiver() {
 
         override fun onReceive(context: Context?, intent: Intent?) {
-            val pushMessage =
-                intent?.getParcelableExtra<PushMessage>(RedlinkFirebaseMessagingService.EXTRA_PUSH_MESSAGE)
+            val pushMessage = PushMessage.fromIntent(intent)
             Log.i("MainActivity", "Push received in MainActivity: ${pushMessage?.id}")
         }
 
@@ -192,7 +197,7 @@ class MainActivity : RedlinkActivity() {
 
         override fun onReceive(context: Context?, intent: Intent?) {
             val fcmToken = intent?.getStringExtra(RegisterDeviceService.EXTRA_REGISTERED_TOKEN)
-            token.text = fcmToken
+            findViewById<TextView>(R.id.token).text = fcmToken
         }
 
     }

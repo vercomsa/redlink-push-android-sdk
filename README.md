@@ -5,9 +5,9 @@
 Add required dependencies to your gradle config file `app/build.gradle`.
 
 ```gradle
-implementation 'pl.redlink:push:1.12.3'
+implementation 'pl.redlink:push:1.14.0'
 implementation 'androidx.appcompat:appcompat:1.4.2'
-implementation 'com.google.firebase:firebase-messaging:23.1.0'
+implementation 'com.google.firebase:firebase-messaging:23.0.8'
 ```
 
 Add required repository
@@ -69,8 +69,8 @@ registerReceiver(pushBroadcast, intentFilter)
 
 private val pushBroadcast: BroadcastReceiver = object : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-      val pushMessage = intent?.getParcelableExtra<PushMessage>(RedlinkFirebaseMessagingService.EXTRA_PUSH_MESSAGE)
-      //todo do something with the push message
+        val pushMessage = PushMessage.fromIntent(intent)
+        //todo do something with the push message
     }
 }
 ```
@@ -96,12 +96,24 @@ To handle actions manually, register handler via `RedlinkApp.customActionHandler
 
 ```kotlin
 val handler = object : RedlinkActionHandler {
-   override handleAction(applicationContext: Context, action: Action) {
-     //todo handle action
+   override handleAction(applicationContext: Context, action: Action) { 
+        //todo handle action id
+        when (action.actionId) {
+            ActionId.YES -> doSomething()
+            else -> doSomethingElse()
+        }
+        //todo handle action type
+        when (action.type) {
+            ActionType.DEEPLINK -> openDeeplink()
+            ActionType.BROWSER -> openBrowser()
+            ActionType.WEBVIEW -> openWebview()
+            ActionType.NONE -> openNone()
+        }    
    }
 }
 RedlinkApp.customActionHandler(handler)
 ```
+
 ## In-App Pushes
 Represents the last push, which there was no action. In-App pushes are presented in the form of a native dialog based on title, body and actions.
 
@@ -152,6 +164,7 @@ Example:
   RedLinkUser.Edit()
         .email("user@redlink.pl")
         .phone("+48123456789")
+        .externalId("ABC-123-789-XYZ")
         .customValue("age", 25) 
         .customValue("premium", false)
         .save()

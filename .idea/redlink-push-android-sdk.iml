@@ -2,7 +2,54 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/generated/res/pngs" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/generated/res/resValues" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/aar_metadata_check" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/compressed_assets" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/data_binding_layout_info_type_merge" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/data_binding_layout_info_type_package" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/desugar_graph/debug/out/externalLibs" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/desugar_graph/debug/out/mixedScopes" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/desugar_graph/debug/out/otherProjects" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeLibDexDebug" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/1" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/10" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/11" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/12" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/13" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/15" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/2" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/3" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/4" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/5" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/6" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/7" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/8" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/dex/debug/mergeProjectDexDebug/9" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/duplicate_classes_check" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/external_file_lib_dex_archives" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/external_libs_dex_archive" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/external_libs_dex_archive_with_artifact_transforms" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/global_synthetics_dex" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/global_synthetics_external_lib" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/global_synthetics_external_libs_artifact_transform" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/global_synthetics_file_lib" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/global_synthetics_mixed_scope" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/global_synthetics_project" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/global_synthetics_subproject" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/incremental/mergeDebugResources/stripped.dir" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/lint_jar" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/merged_jni_libs" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/merged_shaders" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/mixed_scope_dex_archive" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/prebuild" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/sub_project_dex_archive" />
+      <excludeFolder url="file://$MODULE_DIR$/RedlinkExample/app/build/intermediates/validate_signing_config" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

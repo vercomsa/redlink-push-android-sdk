@@ -1,0 +1,5 @@
+.idea
+RedlinkExample/.gradle
+RedlinkExample/.idea
+RedlinkExample/app/build
+RedlinkExample/local.properties
