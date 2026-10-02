@@ -1,13 +1,20 @@
 # Getting started
 
+## Requirements
+
+- **Minimum Android SDK**: 21 (Android 5.0 Lollipop)
+- **Target Android SDK**: 36
+- **Gradle**: 8.10.2+
+- **JDK**: 17 or higher
+
 ## Gradle setup
 
 Add required dependencies to your gradle config file `app/build.gradle`.
 
 ```gradle
-implementation 'pl.redlink:push:1.14.1'
-implementation 'androidx.appcompat:appcompat:1.4.2'
-implementation 'com.google.firebase:firebase-messaging:23.0.8'
+implementation 'pl.redlink:push:1.16.12'
+implementation 'androidx.appcompat:appcompat:1.7.0'
+implementation 'com.google.firebase:firebase-messaging:24.1.0'
 ```
 
 Add required repository
@@ -16,7 +23,7 @@ Add required repository
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven {
             url 'https://redlinkv1.jfrog.io/artifactory/default-maven-local'
         }
@@ -238,3 +245,12 @@ Kotlin:
           "APP_SCREEN" to screenName)
   RedlinkAnalytics.trackEvent("PRODUCT_CLICKED", params)
 ```
+# Software Bill of Materials (SBOM)
+
+A CycloneDX SBOM for the `pl.redlink:push` library is published under `sbom/`
+(`bom.json`, `bom.xml`) and updated with every release.
+
+# Security and changes
+
+- Vulnerability reporting policy: [SECURITY.md](SECURITY.md)
+- Release history: [CHANGELOG.md](CHANGELOG.md)
